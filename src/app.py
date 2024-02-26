@@ -47,6 +47,7 @@ def main():
                    "Low Temperature: " + str(min(all_temps)) + "\n"]
 
         print("".join(summary))
+        return "".join(summary)
 
 
 if __name__ == "__main__":
