@@ -2,14 +2,21 @@ from datetime import datetime
 from collections import defaultdict
 import requests
 
+URL = "https://e75urw7oieiszbzws4gevjwvze0baaet.lambda-url.eu-west-2.on.aws/"
 
-def main():
-    url = "https://e75urw7oieiszbzws4gevjwvze0baaet.lambda-url.eu-west-2.on.aws/"
+
+def get_weather_data(url):
 
     response = requests.get(url)
     response.raise_for_status()
 
     weather_data = response.json()
+
+    return weather_data
+
+
+def main():
+    weather_data = get_weather_data(URL)
 
     grouped_by_day = defaultdict(list)
     summaries = {}
